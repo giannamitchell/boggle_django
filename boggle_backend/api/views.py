@@ -62,17 +62,25 @@ class CreateGameBySizeView(APIView):
 
         try:
             with transaction.atomic():
-
-                # Generate random grid
                 grid = random_grid(size)
+                
+                # 2. ADD THESE TWO LINES BACK:
                 now = datetime.now()
                 gname = f"Random{size}Grid:{now.strftime('%Y-%m-%d %H:%M:%S')}"
+                # 1. Determine which file to open based on the language
+                # Make sure these files actually exist in your api/ folder!
+                if dictionary_language.lower() == "spanish":
+                    file_path = "api/dictionary_es.json"
+                 
+                else:
+                    file_path = "api/dictionary.json" # Default English
 
-                file_path = "api/dictionary.json"
+                # 2. Use that specific file
                 dictionary = read_json_to_list(file_path)
 
-                mygame = Boggle(grid, dictionary)
+                # ... (rest of your code remains the same)
                  
+                mygame = Boggle(grid, dictionary)
 
                  
                 # Solver call
