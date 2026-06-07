@@ -1,4 +1,4 @@
-Django Backend Solver
+#**Django Backend Solver**
 Hello, my name is Gianna and here is my project!
 This is a backend web service built using the Django framework.
 
@@ -10,10 +10,12 @@ How it works: The backend accepts a 4x4 matrix representation Boggle board and u
 
   
 ### Input Board Layout:
+```text
 M  S  E  T
 R  A  T  G
 L  O  I  E
 F  Q  N  W
+```
 
 ### Backend Output Response:
 {
